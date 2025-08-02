@@ -3,6 +3,7 @@ import axios, { AxiosInstance } from 'axios';
 
 const API_BASE_URL = 'https://twitter-clone-theta-sage.vercel.app/api'
 
+// this will create an authenticated api and pass the token into our headers -> 
 export const createApiClient = (getToken: () => Promise<string | null>): AxiosInstance => {
     const api = axios.create({ baseURL: API_BASE_URL });
 
