@@ -12,7 +12,7 @@ router.put('/profile',protectRoute, updateProfile);
 // sync the user from clerk to mongoDB.
 router.post('/sync', protectRoute, syncUser);
 // to get the current logged in user.
-router.post('/me', protectRoute, getCurrentUser);
+router.get('/me', protectRoute, getCurrentUser);
 // endpoint to be able to follow a user.
 router.post('/follow/:targetUserId', protectRoute, followUser);
 

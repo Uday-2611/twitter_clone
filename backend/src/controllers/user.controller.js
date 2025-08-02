@@ -42,7 +42,7 @@ export const syncUser = asyncHandler(async (req, res) => {
         email: clerkUser.emailAddresses[0].emailAddress,
         firstName: clerkUser.firstName || '',
         lastName: clerkUser.lastName || '',
-        username: clerkUser.emailAddresses[0].emailAddress.split("@"[0]),
+        username: clerkUser.emailAddresses[0].emailAddress.split("@")[0],
         profilePicture: clerkUser.imageUrl || '',
     };
 
@@ -74,7 +74,7 @@ export const followUser = asyncHandler(async (req, res) => {
     const isFollowing = currentUser.following.includes(targetUserId);
 
     if (isFollowing) {
-        // you are already following and wabt to unfollow -> 
+        // you are already following and want to unfollow -> 
         await User.findByIdAndUpdate(currentUser._id, {
             $pull: { following: targetUserId },
         });
