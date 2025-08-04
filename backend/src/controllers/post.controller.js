@@ -116,7 +116,7 @@ export const likePost = asyncHandler(async (req, res) => {
     const { postId } = req.params;
 
     const user = await User.findOne({ clerkId: userId });
-    const post = await Post.findOne(postId);
+    const post = await Post.findById(postId);
 
     if (!user || !post) return res.status(400).json({ error: 'User or post not found' });
 
