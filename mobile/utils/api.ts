@@ -1,7 +1,7 @@
 import { useAuth } from '@clerk/clerk-expo';
 import axios, { AxiosInstance } from 'axios';
 
-const API_BASE_URL = 'https://twitter-clone-theta-sage.vercel.app/api'
+const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL || 'https://twitter-clone-theta-sage.vercel.app/api'
 
 // this will create an authenticated api and pass the token into our headers -> 
 export const createApiClient = (getToken: () => Promise<string | null>): AxiosInstance => {
